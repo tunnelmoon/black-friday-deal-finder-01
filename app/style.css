@@ -1,0 +1,205 @@
+/* Deal Scout: a plain, fast deal board. System fonts only, no webfonts, no
+   images: the category tiles are coloured blocks, so the first load is tiny. */
+
+:root {
+  --ink: #17130f;
+  --paper: #faf6ef;
+  --card: #ffffff;
+  --line: #e4dccf;
+  --red: #b3261e;
+  --red-dark: #8f1d17;
+  --green: #1d6b34;
+  --amber: #8a5a00;
+  --grey: #6b6259;
+  --blue: #1d4e89;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+a { color: var(--red); }
+a:hover { color: var(--red-dark); }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+.masthead {
+  background: var(--ink);
+  color: #f5efe4;
+  padding: 34px 0 26px;
+  border-bottom: 5px solid var(--red);
+}
+
+.kicker {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e8b4b0;
+}
+
+.masthead h1 { margin: 0 0 8px; font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; }
+.lede { margin: 0 0 10px; max-width: 640px; font-size: 17px; color: #d8d0c2; }
+.count { margin: 0; font-size: 14px; color: #b8ae9c; }
+
+.controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr 1fr;
+  gap: 12px;
+  align-items: end;
+  padding: 18px 0 6px;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  z-index: 5;
+}
+
+.controls label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey); }
+.controls input[type="search"], .controls select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 15px;
+}
+.controls input[type="range"] { width: 100%; margin-top: 12px; accent-color: var(--red); }
+#minoff-label { font-size: 12px; text-transform: none; letter-spacing: 0; color: var(--ink); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 16px 0 8px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card-link { color: inherit; text-decoration: none; display: block; flex: 1; }
+.card-link:hover h3 { color: var(--red); }
+
+.thumb {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: var(--grey);
+}
+.thumb-audio { background: #5b4a8a; }
+.thumb-tv { background: #0f4c5c; }
+.thumb-laptops { background: #1d4e89; }
+.thumb-tablets { background: #386641; }
+.thumb-wearables { background: #9b2226; }
+.thumb-accessories { background: #6d6875; }
+.thumb-smart-home { background: #2a6f6f; }
+.thumb-gaming { background: #5f0f40; }
+.thumb-phones { background: #7f4f24; }
+.thumb-home { background: #606c38; }
+.thumb-kitchen { background: #bc6c25; }
+.thumb-fashion { background: #7b2d8e; }
+.thumb-toys { background: #d64550; }
+.thumb-big { height: 150px; font-size: 52px; }
+
+.card-body { padding: 14px 16px 12px; }
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.store { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey); }
+.signal {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.signal-new-low { background: #d9f2e2; color: var(--green); }
+.signal-strong { background: #dcebf7; color: var(--blue); }
+.signal-decent { background: #fdf0d3; color: var(--amber); }
+.signal-modest { background: #ece7df; color: var(--grey); }
+
+.card h3 { margin: 8px 0 2px; font-size: 17px; line-height: 1.3; }
+.category { margin: 0 0 10px; font-size: 13px; color: var(--grey); }
+.prices { margin: 0; }
+.price { font-size: 24px; font-weight: 800; }
+.prices-big .price { font-size: 32px; }
+.was { color: var(--grey); font-size: 15px; margin-left: 4px; }
+.off {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+.save { margin: 4px 0 0; font-size: 14px; font-weight: 700; color: var(--green); }
+.checked { margin: 8px 0 0; font-size: 12px; color: var(--grey); }
+
+.store-btn {
+  display: block;
+  margin: 12px 16px 16px;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.store-btn:hover { background: var(--red-dark); color: #fff; }
+.store-btn-big { margin: 16px 0 0; max-width: 320px; }
+
+.empty { grid-column: 1 / -1; padding: 40px 0; font-size: 17px; color: var(--grey); }
+
+.back { display: inline-block; margin: 20px 0 12px; font-weight: 700; text-decoration: none; }
+.detail {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.detail-body h2 { margin: 8px 0 2px; font-size: 26px; line-height: 1.25; }
+.evidence { margin: 14px 0 0; font-size: 15px; }
+.compare { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; }
+.compare h2 { margin: 0 0 8px; font-size: 18px; }
+.compare p { margin: 6px 0; }
+
+footer { border-top: 1px solid var(--line); margin: 28px 0 40px; padding-top: 18px; }
+footer h2 { font-size: 18px; margin: 0 0 8px; }
+footer p { max-width: 760px; color: var(--grey); font-size: 14px; }
+
+@media (max-width: 900px) {
+  .controls { grid-template-columns: 1fr 1fr; position: static; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .detail { grid-template-columns: 1fr; }
+  .thumb-big { height: 110px; }
+}
+
+@media (max-width: 560px) {
+  .masthead h1 { font-size: 34px; }
+  .controls { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .search-label { grid-column: 1; }
+}

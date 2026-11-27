@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deal Scout: Black Friday 2026</title>
+<meta name="description" content="Black Friday 2026 deals, checked against named sources on 27 Nov 2026. Search, filter and compare real prices across stores.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Black Friday &middot; Cyber Monday 2026</p>
+    <h1>Deal Scout</h1>
+    <p class="lede">Real deals, checked against named sources, with an honest verdict on each one. No inflated was-prices, no filler.</p>
+    <p class="count" id="count"></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="view">
+    <div class="controls" role="search">
+      <label class="search-label">Search
+        <input id="search" type="search" placeholder="Try &ldquo;AirPods&rdquo; or &ldquo;OLED&rdquo;" autocomplete="off">
+      </label>
+      <label>Category
+        <select id="category"></select>
+      </label>
+      <label>Store
+        <select id="store"></select>
+      </label>
+      <label>Discount
+        <input id="minoff" type="range" min="0" max="80" step="10" value="0">
+        <span id="minoff-label">Any discount</span>
+      </label>
+      <label>Sort
+        <select id="sort"></select>
+      </label>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+  <section id="detail" hidden></section>
+  <footer>
+    <h2>How these prices were checked</h2>
+    <p id="checked-note"></p>
+    <p>Every deal lists its store, its sale price, its usual price, the discount between them, and the source that reported the price. The verdict on each card says whether the cut is a new low, a strong price, a decent cut or a modest one, and on what evidence. Store links go to the store's own search for the product. Deal Scout takes no payment from any store.</p>
+  </footer>
+</main>
+
+<script type="module" src="/main.js"></script>
+</body>
+</html>
